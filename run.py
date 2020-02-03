@@ -7,22 +7,24 @@ from config.constants import Constants
 import argparse
 #import timeit
 
+# Step 1 - Declaration phase
 parser = argparse.ArgumentParser(description='Palindrome date calculation')
 parser.add_argument("--start", default=2000, type=int, help="The first year")
 parser.add_argument("--end", default=2030, type=int, help="The last year")
 
 args = parser.parse_args()
-
 fromDate = args.start
 toDate = args.end
 
+const = Constants.getInstance()
 calculate = Calculate()
 itDate = ITDate()
 i18nDate = I18NDate()
-const = Constants.getInstance()
 
+# Step 2 - Data preparation
 const.startYear = fromDate
 const.endYear = toDate
+
 #timePrepareStart = timeit.default_timer()
 
 itDates = itDate.getAllDate()
@@ -32,11 +34,12 @@ i18nDates = i18nDate.getAllDate()
 
 #print 'Preparation elapsed time: ', timePrepareStop - timePrepareStart
 
+# Step 3 - Calculation
 itCalculation = calculate.getPalindromeDate(itDates)
 i18nCalculation = calculate.getPalindromeDate(i18nDates)
 commonCalculation = calculate.getPalindromeDateInCommon(itCalculation['dates'], i18nCalculation['dates'])
 
-# Console output
+# Step 4 - Console output
 
 print('--------------------------------------------------------')
 print('-                    PALINDROME DATE                   -')
