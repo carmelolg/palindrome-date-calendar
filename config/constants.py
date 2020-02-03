@@ -5,7 +5,7 @@ class Constants(object):
     normalMonths = ['11','04','06', '09']
     shortMonths = ['02']
     startYear = 0
-    endYear = 1
+    endYear = 10000
     numMonths = 12
     numDaysShortMonth = 28
     numDaysNormalMonth = 30
