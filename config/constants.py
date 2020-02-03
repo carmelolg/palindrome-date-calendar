@@ -12,3 +12,15 @@ class Constants(object):
     numDaysLongMonth = 31
     numDaysShortMonthBissextile = 29
 
+    __instance = None
+    @staticmethod
+    def getInstance():
+        if Constants.__instance == None:
+            Constants()
+        return Constants.__instance
+    def __init__(self):
+        if Constants.__instance != None:
+            raise Exception("This class is a singleton!")
+        else:
+            Constants.__instance = self
+
