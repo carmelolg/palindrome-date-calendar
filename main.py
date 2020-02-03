@@ -28,32 +28,32 @@ commonCalculation = calculate.getPalindromeDateInCommon(itCalculation['dates'], 
 
 print('--------------------------------------------------------')
 print('-                    PALINDROME DATE                   -')
-print('-                   FROM ',str(const.startYear),' TO ',str(const.endYear),'                  -')
+print('-                   FROM ',str(const.startYear),' TO ',str(const.endYear),'              -')
 print ('-                                                      -' )
 print ('- Italian standard                                     -' )
 print ('-                                                      -')
-print ('- Number of palindrome dates: ', str(itCalculation['count']), '                        -')
+print ('- Number of palindrome dates: ', str(itCalculation['count']), '                      -')
 print ('- List                                                 -')
 for x in itCalculation['dates']:
-    print ('- '+ str(x), '                                           -')
+    print ('- '+ str(x), '                                          -')
 print ('-                                                      -')
 print ('--------------------------------------------------------')
 
 
 print ('- International standard                               -' )
 print ('-                                                      -')
-print ('- Number of palindrome dates: ', str(i18nCalculation['count']), '                        -')
+print ('- Number of palindrome dates: ', str(i18nCalculation['count']), '                      -')
 print ('- List                                                 -')
 for x in i18nCalculation['dates']:
-    print ('- '+ str(x), '                                           -')
+    print ('- '+ str(x), '                                          -')
 print ('-                                                      -')
 print ('--------------------------------------------------------')
 
 print ('- International and italian intersection               -' )
 print ('-                                                      -')
-print ('- Number of palindrome dates: ', str(commonCalculation['count']), '                        -')
+print ('- Number of palindrome dates: ', str(commonCalculation['count']), '                      -')
 print ('- List                                                 -')
 for x in commonCalculation['dates']:
-    print ('- '+ str(x), '                                -')
+    print ('- '+ str(x), '                               -')
 print ('-                                                      -')
 print ('--------------------------------------------------------')
