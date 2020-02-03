@@ -1,3 +1,5 @@
+![Python application](https://github.com/carmelolg/palindrome-date-calendar/workflows/Python%20application/badge.svg?branch=master)
+
 # palindrome-date-calendar
 A Python script that show on console the palindrome dates in a range of years 
 
