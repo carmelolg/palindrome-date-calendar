@@ -14,7 +14,9 @@ class DateUtil(object):
     
     def _init(self):
         for x in range(self.const.startYear, self.const.endYear + 1):
-	        self.years.append(str(x))
+            _x = str(x).zfill(4)
+            if self.isYearValid(_x):
+	            self.years.append(_x)
 
         for x in range(1, self.const.numMonths + 1):
             self.months.append(self._initNumber(x))
@@ -82,4 +84,7 @@ class DateUtil(object):
         if itYear == i18nYear and itMonth == i18nMonth and itDay == i18nDay :
             return True
         else: return False
+
+    def isYearValid(self, year):
+        return True if int(year[:2][::-1]) <= 12 and int(year[:2][::-1]) > 0 and int(year[2:][::-1]) > 0 and int(year[2:][::-1]) <= 31 else False
 

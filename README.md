@@ -6,7 +6,7 @@ A Python script that show on console the palindrome dates in a range of years
 
 ### How to run
 
-`./main.py >> output.txt`
+`python main.py >> output.txt`
 where 
 `>> output.txt` is optional
 

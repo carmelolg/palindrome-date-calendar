@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 from palindrome import Palindrome
 from date import DateUtil

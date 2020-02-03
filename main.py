@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 from date import DateUtil
 from calculate import Calculate
@@ -22,36 +22,34 @@ timePrepareStop = timeit.default_timer()
 itCalculation = calculate.getPalindromeDate(itDates)
 i18nCalculation = calculate.getPalindromeDate(i18nDates)
 commonCalculation = calculate.getPalindromeDateInCommon(itCalculation['dates'], i18nCalculation['dates'])
-
-
-print '--------------------------------------------------------'
-print '-                    PALINDROME DATE                   -'
-print '-                   FROM ' + str(const.startYear) + ' TO ' + str(const.endYear) + '                  -'
-print '-                                                      -' 
-print '- Italian standard                                     -' 
-print '-                                                      -'
-print '- Number of palindrome dates: ' + str(itCalculation['count']) + '                        -'
-print '- List                                                 -'
+print('--------------------------------------------------------')
+print('-                    PALINDROME DATE                   -')
+print('-                   FROM ',str(const.startYear),' TO ',str(const.endYear),'                  -')
+print ('-                                                      -' )
+print ('- Italian standard                                     -' )
+print ('-                                                      -')
+print ('- Number of palindrome dates: ', str(itCalculation['count']), '                        -')
+print ('- List                                                 -')
 for x in itCalculation['dates']:
-    print '- '+ str(x) + '                                           -'
-print '-                                                      -'
-print '--------------------------------------------------------'
+    print ('- '+ str(x), '                                           -')
+print ('-                                                      -')
+print ('--------------------------------------------------------')
 
 
-print '- International standard                               -' 
-print '-                                                      -'
-print '- Number of palindrome dates: ' + str(i18nCalculation['count']) + '                        -'
-print '- List                                                 -'
+print ('- International standard                               -' )
+print ('-                                                      -')
+print ('- Number of palindrome dates: ', str(i18nCalculation['count']), '                        -')
+print ('- List                                                 -')
 for x in i18nCalculation['dates']:
-    print '- '+ str(x) + '                                           -'
-print '-                                                      -'
-print '--------------------------------------------------------'
+    print ('- '+ str(x), '                                           -')
+print ('-                                                      -')
+print ('--------------------------------------------------------')
 
-print '- International and italian intersection               -' 
-print '-                                                      -'
-print '- Number of palindrome dates: ' + str(commonCalculation['count']) + '                        -'
-print '- List                                                 -'
+print ('- International and italian intersection               -' )
+print ('-                                                      -')
+print ('- Number of palindrome dates: ', str(commonCalculation['count']), '                        -')
+print ('- List                                                 -')
 for x in commonCalculation['dates']:
-    print '- '+ str(x) + '                                -'
-print '-                                                      -'
-print '--------------------------------------------------------'
+    print ('- '+ str(x), '                                -')
+print ('-                                                      -')
+print ('--------------------------------------------------------')
