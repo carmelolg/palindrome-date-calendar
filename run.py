@@ -4,13 +4,25 @@ from service.calculate import Calculate
 from service.date.itDate import ITDate
 from service.date.i18nDate import I18NDate
 from config.constants import Constants
+import argparse
 #import timeit
+
+parser = argparse.ArgumentParser(description='Palindrome date calculation')
+parser.add_argument("--start", default=2000, type=int, help="The first year")
+parser.add_argument("--end", default=2030, type=int, help="The last year")
+
+args = parser.parse_args()
+
+fromDate = args.start
+toDate = args.end
 
 calculate = Calculate()
 itDate = ITDate()
 i18nDate = I18NDate()
-const = Constants()
+const = Constants.getInstance()
 
+const.startYear = fromDate
+const.endYear = toDate
 #timePrepareStart = timeit.default_timer()
 
 itDates = itDate.getAllDate()
@@ -28,7 +40,7 @@ commonCalculation = calculate.getPalindromeDateInCommon(itCalculation['dates'], 
 
 print('--------------------------------------------------------')
 print('-                    PALINDROME DATE                   -')
-print('-                   FROM ',str(const.startYear),' TO ',str(const.endYear),'              -')
+print('-                   FROM ',str(const.startYear).zfill(4) ,' TO ',str(const.endYear).zfill(4),'              -')
 print ('-                                                      -' )
 print ('- Italian standard                                     -' )
 print ('-                                                      -')

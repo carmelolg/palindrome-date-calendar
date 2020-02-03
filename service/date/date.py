@@ -11,7 +11,7 @@ class AbstractDate(ABC):
     daysOfNormalMonth = []
     daysOfShortMonth = []
     daysOfShortMonthBissextile = []
-    const = Constants()
+    const = Constants.getInstance()
     utils = DateUtil()
 
     @abstractmethod
