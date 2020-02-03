@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
-from constants import Constants
-import timeit
+from config.constants import Constants
+from service.date.dateUtils import DateUtil
+from abc import ABC, abstractmethod
 
-class DateUtil(object):
+class AbstractDate(ABC):
     years = []
     months = []
     daysOfLongMonth = []
@@ -11,11 +12,16 @@ class DateUtil(object):
     daysOfShortMonth = []
     daysOfShortMonthBissextile = []
     const = Constants()
+    utils = DateUtil()
+
+    @abstractmethod
+    def compileDate(self, year, month, day):
+        pass
     
     def _init(self):
         for x in range(self.const.startYear, self.const.endYear + 1):
             _x = str(x).zfill(4)
-            if self.isYearValid(_x):
+            if self.utils.isYearValid(_x):
 	            self.years.append(_x)
 
         for x in range(1, self.const.numMonths + 1):
@@ -36,7 +42,7 @@ class DateUtil(object):
     def _initNumber(self, number):
         return '0' + str(number) if number < 10 else str(number)
 
-    def getAllITDate(self):
+    def getAllDate(self):
         self._init()
         dates = []
         for year in self.years:
@@ -49,42 +55,8 @@ class DateUtil(object):
                 elif month in self.const.normalMonths:
                     days = self.daysOfNormalMonth
                 for day in days:
-                    currentDate = day + '-' + month + '-' + year
+                    currentDate = self.compileDate(year, month, day)
                     if currentDate not in dates:
                         dates.append(currentDate)
         return dates
-
-    def getAllI18NDate(self):
-        self._init()
-        dates = []
-        for year in self.years:
-            bissexTileYear = True if int(year) % 4 == 0 else False
-            _daysOfShortMonth = self.daysOfShortMonthBissextile if bissexTileYear else self.daysOfShortMonth
-            for month in self.months:
-                days = self.daysOfLongMonth
-                if month in self.const.shortMonths:
-                    days = _daysOfShortMonth
-                elif month in self.const.normalMonths:
-                    days = self.daysOfNormalMonth
-                for day in days:
-                    currentDate = year + '-' + month + '-' + day
-                    if currentDate not in dates:
-                        dates.append(currentDate)
-        return dates
-
-    def equalsBetweenITAndI18NDate(self, itDate, i18nDate):
-        itYear = itDate[6:]
-        itMonth = itDate[3:5]
-        itDay = itDate[:2]
-        
-        i18nYear = i18nDate[:4]
-        i18nMonth = i18nDate[5:7]
-        i18nDay = i18nDate[-2:]
-        
-        if itYear == i18nYear and itMonth == i18nMonth and itDay == i18nDay :
-            return True
-        else: return False
-
-    def isYearValid(self, year):
-        return True if int(year[:2][::-1]) <= 12 and int(year[:2][::-1]) > 0 and int(year[2:][::-1]) > 0 and int(year[2:][::-1]) <= 31 else False
 

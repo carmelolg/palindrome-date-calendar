@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
-from palindrome import Palindrome
-from date import DateUtil
+from service.palindrome import Palindrome
+from service.date.dateUtils import DateUtil
 
 class Calculate(object):
     palindromeUtils = Palindrome()
@@ -19,24 +19,6 @@ class Calculate(object):
         result['dates'] = palindromeDate
         return result
 
-#    def getPalindromeDateInCommon(self, itDates, i18nDates):
-#        count = 0;
-#        palindromeDate = []
-#        result = dict()
-#        
-#        itPalindromeDate = self.getPalindromeDate(itDates)['dates']
-#        i18nPalindromeDate = self.getPalindromeDate(i18nDates)['dates']
-#
-#        for itDate in itPalindromeDate:
-#            for i18nDate in i18nPalindromeDate:
-#               if self.utils.equalsBetweenITAndI18NDate(itDate, i18nDate):
-#                    count += 1
-#                    palindromeDate.append(itDate + '|' + i18nDate)
-#
-#        result['count'] = count
-#        result['dates'] = palindromeDate
-#        return result
-    
     def getPalindromeDateInCommon(self, itPalindromeDate, i18nPalindromeDate):
         count = 0;
         palindromeDate = []

@@ -1,27 +1,31 @@
 #!/usr/bin/python3
 
-from date import DateUtil
-from calculate import Calculate
-from constants import Constants
-import timeit
+from service.calculate import Calculate
+from service.date.itDate import ITDate
+from service.date.i18nDate import I18NDate
+from config.constants import Constants
+#import timeit
 
 calculate = Calculate()
-utils = DateUtil()
+itDate = ITDate()
+i18nDate = I18NDate()
 const = Constants()
 
-timePrepareStart = timeit.default_timer()
+#timePrepareStart = timeit.default_timer()
 
-itDates = utils.getAllITDate()
-i18nDates = utils.getAllI18NDate()
+itDates = itDate.getAllDate()
+i18nDates = i18nDate.getAllDate()
 
-timePrepareStop = timeit.default_timer()
+#timePrepareStop = timeit.default_timer()
 
 #print 'Preparation elapsed time: ', timePrepareStop - timePrepareStart
-
 
 itCalculation = calculate.getPalindromeDate(itDates)
 i18nCalculation = calculate.getPalindromeDate(i18nDates)
 commonCalculation = calculate.getPalindromeDateInCommon(itCalculation['dates'], i18nCalculation['dates'])
+
+# Console output
+
 print('--------------------------------------------------------')
 print('-                    PALINDROME DATE                   -')
 print('-                   FROM ',str(const.startYear),' TO ',str(const.endYear),'                  -')
