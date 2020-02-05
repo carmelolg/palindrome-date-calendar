@@ -9,7 +9,7 @@ class Print(object):
         return "{:<50}".format(string)
 
     def field(self, field):
-        print("- ", self.pad(field), " -") 
+        print("- ", self.pad(field), " -")
 
     def divisor(self):
         print('--------------------------------------------------------')
@@ -43,3 +43,11 @@ class Print(object):
         self.space()
         self.divisor()
 
+    def stats(self, title, nextCount, nextField, lastCount, lastField):
+        self.space()
+        self.field(title)
+        self.space()
+        self.field('Next: ' + nextField + ' in ' + str(nextCount) + ' days')
+        self.field('Last: ' + lastField + ' ' + str(lastCount) + ' days ago')
+        self.space()
+        self.divisor()

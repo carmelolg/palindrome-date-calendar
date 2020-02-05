@@ -17,6 +17,10 @@ class AbstractDate(ABC):
     @abstractmethod
     def compileDate(self, year, month, day):
         pass
+
+    @abstractmethod
+    def formatDate(self):
+        pass
     
     def _init(self):
         for x in range(self.const.startYear, self.const.endYear + 1):
